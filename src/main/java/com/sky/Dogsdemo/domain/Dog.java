@@ -1,11 +1,20 @@
 package com.sky.Dogsdemo.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Dog {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+private Integer Id;
     private String name;
     private String breed;
 
-    private int age;
+    private Integer age;
 
     public Dog(String name, String breed, int age){
         super();
