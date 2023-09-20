@@ -53,7 +53,7 @@ public class DogController {
             @RequestParam(name = "name", required = false) String name,
             @RequestParam(name = "breed", required = false) String breed,
             @RequestParam(name = "age", required = false) Integer age) {
-        return this.updateDog(id, name, breed, age);
+        return this.service.updateDog(id, name, breed, age);
     }
 
     @DeleteMapping("/remove/{id}")

@@ -10,11 +10,18 @@ public class Dog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer Id;
+private Integer id;
     private String name;
     private String breed;
 
     private Integer age;
+
+    public Dog(Integer Id, String name, String breed, int age){
+        this.id = Id;
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+    }
 
     public Dog(String name, String breed, int age){
         super();
@@ -43,7 +50,7 @@ private Integer Id;
         this.breed = breed;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -51,5 +58,21 @@ private Integer Id;
         this.age = age;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "Id=" + id +
+                ", name='" + name + '\'' +
+                ", breed='" + breed + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

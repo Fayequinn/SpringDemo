@@ -1,0 +1,1 @@
+INSERT INTO `dog` (`name`, `breed`, `age`) VALUES ('Enzo', 'Jack Russell', 3);
