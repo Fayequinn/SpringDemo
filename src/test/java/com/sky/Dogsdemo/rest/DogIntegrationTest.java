@@ -3,6 +3,7 @@ package com.sky.Dogsdemo.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sky.Dogsdemo.domain.Dog;
+import com.sky.Dogsdemo.dtos.DogDTO;
 import jdk.swing.interop.SwingInterOpUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
 package com.sky.Dogsdemo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Dog {
@@ -15,6 +15,14 @@ private Integer id;
     private String breed;
 
     private Integer age;
+
+    //Bidirectional
+    @OneToMany(mappedBy = "owner")
+//    @JsonManagedReference
+    private List<Book> books;
+
+
+
 
     public Dog(Integer Id, String name, String breed, int age){
         this.id = Id;
@@ -54,7 +62,7 @@ private Integer id;
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -64,6 +72,14 @@ private Integer id;
 
     public Integer getId() {
         return id;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     @Override

@@ -1,10 +1,12 @@
 package com.sky.Dogsdemo.services;
 
 import com.sky.Dogsdemo.domain.Dog;
+import com.sky.Dogsdemo.dtos.DogDTO;
 import com.sky.Dogsdemo.repo.DogRepo;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +36,12 @@ public class DogServiceDB implements DogService{
     }
 
     @Override
-    public List<Dog> getDogs() {
-        return this.repo.findAll();
+    public List<DogDTO> getDogs() {
+        List<DogDTO> dtos = new ArrayList<>();
+
+        for (Dog d : this.repo.findAll())
+            dtos.add(new DogDTO(d));
+        return dtos;
     }
 
     @Override

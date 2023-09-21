@@ -2,6 +2,7 @@ package com.sky.Dogsdemo.rest;
 
 
 import com.sky.Dogsdemo.domain.Book;
+import com.sky.Dogsdemo.dtos.BookDTO;
 import com.sky.Dogsdemo.services.BookService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class BookController {
     }
 
     @GetMapping("/get")
-    public List<Book> getBooks() {
+    public List<BookDTO> getBooks() {
         return this.service.getBooks();
     }
 }

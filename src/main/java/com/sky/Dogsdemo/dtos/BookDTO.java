@@ -1,15 +1,11 @@
-package com.sky.Dogsdemo.domain;
+package com.sky.Dogsdemo.dtos;
 
+import com.sky.Dogsdemo.domain.Book;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
-@Entity
-public class Book {
+public class BookDTO {
 
     @Id
     @GeneratedValue
@@ -19,11 +15,17 @@ public class Book {
 
     private String author;
 
-    @ManyToOne
-//    @JsonBackReference
-    private Dog owner;
+    private Integer ownerId;
 
-    public Book(){
+    public BookDTO(Book b){
+        this.id = b.getId();
+        this.title=b.getTitle();
+        this.author=b.getAuthor();
+        if (b.getOwner() != null)
+            this.ownerId = b.getOwner().getId();
+    }
+
+    public BookDTO(){
         super();
     }
 
@@ -51,11 +53,11 @@ public class Book {
         this.author = author;
     }
 
-    public Dog getOwner() {
-        return owner;
+    public Integer getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwner(Dog owner) {
-        this.owner = owner;
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 }
